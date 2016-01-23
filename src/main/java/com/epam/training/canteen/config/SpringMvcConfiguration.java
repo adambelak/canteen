@@ -12,7 +12,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan({"com.epam.training.canteen.web.controller"})
+@ComponentScan({"com.epam.training.canteen.web.controller", "com.epam.training.canteen.security.web.controller."})
 public class SpringMvcConfiguration extends WebMvcConfigurerAdapter {
 
     @Bean
@@ -21,7 +21,7 @@ public class SpringMvcConfiguration extends WebMvcConfigurerAdapter {
         viewResolver.setViewClass(JstlView.class);
         viewResolver.setPrefix("/WEB-INF/views/");
         viewResolver.setSuffix(".jsp");
- 
+
         return viewResolver;
     }
 
