@@ -1,20 +1,28 @@
 package com.epam.training.canteen.security.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
+@Import({AuthenticationProviderConfiguration.class})
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
+	@Autowired
+	UserDetailsService userDetailsService;
+	
     @Autowired
     public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("user").password("user").roles("USER");
-        auth.inMemoryAuthentication().withUser("admin").password("admin").roles("ADMIN");
+    	auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }
 
     @Override
@@ -27,4 +35,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and().exceptionHandling().accessDeniedPage("/access_denied");
     }
 
+    @Bean
+    public PasswordEncoder passwordEncoder(){
+    	return new BCryptPasswordEncoder();
+    }
+    
 }

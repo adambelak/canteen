@@ -1,7 +1,7 @@
 CREATE  TABLE users (
   username VARCHAR(45) NOT NULL,
-  password VARCHAR(45) NOT NULL,
-  enabled BOOLEAN NOT NULL DEFAULT 1,
+  password VARCHAR(100) NOT NULL,
+  enabled BOOLEAN DEFAULT TRUE NOT NULL,
   PRIMARY KEY (username)
 );
 
