@@ -24,7 +24,8 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 	
     @Override
     protected void handle(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
-        String targetUrl = determineTargetUrl(authentication);
+    	System.out.println(authentication);
+        String targetUrl = getRedirectUrl(authentication.getAuthorities());
  
         if (response.isCommitted()) {
             System.out.println("Can't redirect");
@@ -32,10 +33,6 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
         }
  
         redirectStrategy.sendRedirect(request, response, targetUrl);
-    }
-
-    protected String determineTargetUrl(Authentication authentication) {
-        return getRedirectUrl(authentication.getAuthorities());
     }
     
     private String getRedirectUrl(Collection<? extends GrantedAuthority> authorities) {
@@ -49,6 +46,7 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
     }
     
     private boolean isAdmin(Collection<? extends GrantedAuthority> authorities) {
+    	System.out.println(authorities.toString());
     	return hasAuthority(authorities, "ADMIN");
     }
 
