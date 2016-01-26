@@ -46,7 +46,6 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
     }
     
     private boolean isAdmin(Collection<? extends GrantedAuthority> authorities) {
-    	System.out.println(authorities.toString());
     	return hasAuthority(authorities, "ADMIN");
     }
 
