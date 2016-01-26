@@ -8,8 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css"
-          href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css"/>
     <link href="<c:url value='/assets/css/login.css' />" rel="stylesheet"/>
 </head>
 <body>
