@@ -27,7 +27,7 @@ public class SpringMvcConfiguration extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/assets/**").addResourceLocations("/assets/");
+        registry.addResourceHandler("/assets/**").addResourceLocations("/WEB-INF/assets/");
     }
 
 }

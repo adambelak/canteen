@@ -1,0 +1,10 @@
+.login-container {
+	margin-top: 100px;
+}
+.login-alerts-container {
+	position: relative;
+}
+.login-alerts {
+	position: absolute;
+	bottom: 5px;
+}
