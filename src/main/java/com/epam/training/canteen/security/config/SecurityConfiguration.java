@@ -2,6 +2,7 @@ package com.epam.training.canteen.security.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -15,10 +16,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 @EnableWebSecurity
 @Import({AuthenticationProviderConfiguration.class})
+@ComponentScan({"com.epam.training.canteen.security.config"})
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	UserDetailsService userDetailsService;
+    @Autowired
+    CustomSuccessHandler customSuccessHandler;
 	
     @Autowired
     public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
@@ -30,7 +34,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/", "/home").permitAll()
                 .antMatchers("/admin/**").access("hasRole('ADMIN')")
-                .and().formLogin().loginPage("/login").usernameParameter("username").passwordParameter("password")
+                .and().formLogin()
+                	.loginPage("/login")
+                	.usernameParameter("username")
+                	.passwordParameter("password")
+                	.successHandler(customSuccessHandler)
                 .and().csrf()
                 .and().exceptionHandling().accessDeniedPage("/access_denied");
     }
@@ -39,5 +47,5 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public PasswordEncoder passwordEncoder(){
     	return new BCryptPasswordEncoder();
     }
-    
+
 }
