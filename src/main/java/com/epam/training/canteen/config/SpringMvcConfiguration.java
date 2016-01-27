@@ -3,6 +3,7 @@ package com.epam.training.canteen.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -12,7 +13,8 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan({"com.epam.training.canteen.web.controller", "com.epam.training.canteen.security.web.controller."})
+@Import({com.epam.training.canteen.menu.config.MenuConfiguration.class})
+@ComponentScan({"com.epam.training.canteen.web.controller", "com.epam.training.canteen.*.web.controller"})
 public class SpringMvcConfiguration extends WebMvcConfigurerAdapter {
 
     @Bean

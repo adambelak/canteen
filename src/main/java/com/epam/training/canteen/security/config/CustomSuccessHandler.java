@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
@@ -15,7 +17,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
-
+	
 	private RedirectStrategy redirectStrategy;
 
 	public CustomSuccessHandler() {
@@ -24,14 +26,15 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 	
     @Override
     protected void handle(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
-    	System.out.println(authentication);
         String targetUrl = getRedirectUrl(authentication.getAuthorities());
- 
+
         if (response.isCommitted()) {
             System.out.println("Can't redirect");
             return;
         }
- 
+        
+        request.getSession().setAttribute("isAdmin", targetUrl.endsWith("/admin"));
+        request.getSession().setAttribute("user", authentication.getName());
         redirectStrategy.sendRedirect(request, response, targetUrl);
     }
     

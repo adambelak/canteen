@@ -26,6 +26,53 @@
 				</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
+				<c:if test="${isAdmin}">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						<i class="fa fa-fw fa-database"></i>
+						Manage <span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="<c:url value='/admin/menus' />">
+								<i class="fa fa-fw fa-calendar-plus-o"></i>
+								Menus
+							</a>
+						</li>
+						<li>
+							<a href="<c:url value='/admin/orders' />">
+								<i class="fa fa-fw fa-check-square-o"></i>
+								Orders
+							</a>
+						</li>
+						<li>
+							<a href="<c:url value='/admin/users' />">
+								<i class="fa fa-fw fa-users"></i>
+								Users
+							</a>
+						</li>
+						<li role="separator" class="divider"></li>
+						<li>
+							<a href="<c:url value='/admin/foods' />">
+								<i class="fa fa-fw fa-cutlery"></i>
+								Foods
+							</a>
+						</li>
+						<li>
+							<a href="<c:url value='/admin/side_dishes' />">
+								<i class="fa fa-fw fa-plus"></i>
+								Side dishes
+							</a>
+						</li>
+						<li>
+							<a href="<c:url value='/admin/flavors' />">
+								<i class="fa fa-fw fa-plus"></i>
+								Flavors
+							</a>
+						</li>
+					</ul>
+				</li>
+				</c:if>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 						<i class="fa fa-fw fa-user"></i>
@@ -33,7 +80,7 @@
 					</a>
 					<ul class="dropdown-menu">
 						<li class="disabled">
-							<a href="<c:url value='/settings' />" disabled>
+							<a href="<c:url value='/settings' />">
 								<i class="fa fa-fw fa-gears"></i>
 								Settings
 							</a>
