@@ -39,9 +39,9 @@
 									<a href="<c:url value='${flavor.editUrl}' />" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#flavor-modal">
 										<i class="fa fa-fw fa-pencil"></i>
 									</a>
-									<button type="button" class="btn btn-xs btn-danger" id="remove">
+									<a href="<c:url value='${flavor.removeUrl}' />" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#flavor-modal">
 										<i class="fa fa-fw fa-times"></i>
-									</button>
+									</a>
 								</td>
 							</tr>
 						</c:forEach>

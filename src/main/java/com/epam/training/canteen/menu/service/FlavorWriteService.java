@@ -23,4 +23,8 @@ public class FlavorWriteService {
 		repository.save(transformer.transformDomain(flavor));
 	}
 	
+	public void remove(Flavor flavor) {
+		repository.delete(transformer.transformDomain(flavor));
+	}
+	
 }

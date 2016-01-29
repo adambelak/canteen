@@ -9,6 +9,7 @@ public class FlavorView implements Serializable {
 	private Long id;
 	private String name;
 	private String editUrl;
+	private String removeUrl;
 	
 	public FlavorView() {
 	}
@@ -18,6 +19,7 @@ public class FlavorView implements Serializable {
 		this.id = id;
 		this.name = name;
 		this.editUrl = "/admin/flavors/edit/" + id;
+		this.removeUrl = "/admin/flavors/remove/" + id;
 	}
 
 	public Long getId() {
@@ -42,6 +44,14 @@ public class FlavorView implements Serializable {
 
 	public void setEditUrl(String url) {
 		this.editUrl = url;
+	}
+	
+	public String getRemoveUrl() {
+		return removeUrl;
+	}
+
+	public void setRemoveUrl(String removeUrl) {
+		this.removeUrl = removeUrl;
 	}
 
 	@Override
