@@ -22,5 +22,5 @@ public class FlavorWriteService {
 	public void save(Flavor flavor) {
 		repository.save(transformer.transformDomain(flavor));
 	}
-
+	
 }

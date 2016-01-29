@@ -15,7 +15,7 @@
 				<div class="page-header">
 					<h1 class="clearfix">
 						Flavors
-						<a href="<c:url value='/admin/flavors/form' />" class="btn btn-default pull-right" data-toggle="modal" data-target="#flavor-modal">
+						<a href="<c:url value='/admin/flavors/add' />" class="btn btn-default pull-right" data-toggle="modal" data-target="#flavor-modal">
 							<i class="fa fa-fw fa-plus"></i>
 						</a>
 					</h1>

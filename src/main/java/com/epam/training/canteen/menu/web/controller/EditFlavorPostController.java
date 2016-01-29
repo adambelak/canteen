@@ -12,34 +12,34 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.epam.training.canteen.exception.InvalidRequestException;
 import com.epam.training.canteen.menu.service.FlavorWriteService;
-import com.epam.training.canteen.menu.web.model.AddFlavorRequest;
+import com.epam.training.canteen.menu.web.model.EditFlavorRequest;
 import com.epam.training.canteen.menu.web.transform.FlavorRequestTransformer;
 
 @Controller
-public class AddFlavorPostController {
+public class EditFlavorPostController {
 
-	public static final String REQUEST_MAPPING = "/admin/flavors/add";
+	public static final String REQUEST_MAPPING = "/admin/flavors/edit";
 	private FlavorWriteService writeService;
 	private FlavorRequestTransformer transformer;
 
 	@Autowired
-	public AddFlavorPostController(FlavorWriteService writeService, FlavorRequestTransformer transformer) {
+	public EditFlavorPostController(FlavorWriteService writeService, FlavorRequestTransformer transformer) {
 		this.writeService = writeService;
 		this.transformer = transformer;
 	}
 
 	@ModelAttribute("flavorRequest")
-	public AddFlavorRequest createFlavorRequest(@ModelAttribute AddFlavorRequest addFlavorRequest) {
-		return new AddFlavorRequest();
+	public EditFlavorRequest createFlavorRequest(@ModelAttribute EditFlavorRequest request) {
+		return request;
 	}
 
 	@RequestMapping(value = REQUEST_MAPPING, method = RequestMethod.POST)
-	public String create(@Valid AddFlavorRequest request, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+	public String create(@Valid EditFlavorRequest request, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 		if (bindingResult.hasErrors()) {
 			throw new InvalidRequestException("Invalid flavor.", bindingResult);
 		}
 		writeService.save(transformer.transform(request));
-		redirectAttributes.addFlashAttribute("successMessage", String.format("Flavour '%s' saved!", request.getName()));
+		redirectAttributes.addFlashAttribute("successMessage", String.format("Flavour '%s' updated!", request.getName()));
 		return "redirect:" + FlavorsController.REQUEST_MAPPING;
 	}
 

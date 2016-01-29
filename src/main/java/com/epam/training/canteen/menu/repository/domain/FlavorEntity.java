@@ -29,6 +29,11 @@ public class FlavorEntity implements Serializable {
 		this.name = name;
 	}
 
+	public FlavorEntity(Long id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+
 	public Long getId() {
 		return id;
 	}

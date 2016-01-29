@@ -12,7 +12,7 @@ import com.epam.training.canteen.menu.web.model.AddFlavorRequest;
 @Controller
 public class AddFlavorFormController {
 
-	public static final String REQUEST_MAPPING = "/admin/flavors/form";
+	public static final String REQUEST_MAPPING = "/admin/flavors/add";
 	
 	@ModelAttribute("flavorRequest")
 	public AddFlavorRequest createFlavorRequest(@ModelAttribute AddFlavorRequest flavorRequest) {

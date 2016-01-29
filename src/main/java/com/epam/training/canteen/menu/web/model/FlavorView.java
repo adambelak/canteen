@@ -17,7 +17,7 @@ public class FlavorView implements Serializable {
 		super();
 		this.id = id;
 		this.name = name;
-		this.editUrl = "/admin/flavor/edit/" + id;
+		this.editUrl = "/admin/flavors/edit/" + id;
 	}
 
 	public Long getId() {

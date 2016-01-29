@@ -21,7 +21,7 @@ public class FlavorEntityTransformer {
 	}
 	
 	public FlavorEntity transformDomain(Flavor flavor) {
-		return new FlavorEntity(flavor.getName());
+		return new FlavorEntity(flavor.getId(), flavor.getName());
 	}
 	
 }
