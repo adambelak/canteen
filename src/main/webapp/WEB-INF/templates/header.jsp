@@ -104,3 +104,4 @@
 	    </div>
 	</div>
 </nav>
+<jsp:include page="alerts.jsp" />
