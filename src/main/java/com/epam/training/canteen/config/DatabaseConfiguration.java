@@ -19,15 +19,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories("com.epam.training.canteen.*.repository.dao")
-@PropertySource("classpath:database/config.properties")
 public class DatabaseConfiguration {
-
-	@Value("${hibernate.hibernateDialect}")
-	private String hibernateDialect;
-	@Value("${hibernate.showSQL}")
-	private String showSql;
-	@Value("${hibernate.generateStatistics}")
-	private String generateStatistics;
 
 	@Bean(name = "dataSource")
 	public DataSource dataSource() {
@@ -52,10 +44,9 @@ public class DatabaseConfiguration {
 
 	@Bean(name = "transactionManager")
 	public PlatformTransactionManager transactionManager() {
-
-		JpaTransactionManager txManager = new JpaTransactionManager();
-		txManager.setEntityManagerFactory(entityManagerFactory());
-		return txManager;
+		JpaTransactionManager transactionManager = new JpaTransactionManager();
+		transactionManager.setEntityManagerFactory(entityManagerFactory());
+		return transactionManager;
 	}
 
 }
