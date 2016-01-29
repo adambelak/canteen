@@ -8,6 +8,7 @@ public class FlavorView implements Serializable {
 	
 	private Long id;
 	private String name;
+	private String editUrl;
 	
 	public FlavorView() {
 	}
@@ -16,6 +17,7 @@ public class FlavorView implements Serializable {
 		super();
 		this.id = id;
 		this.name = name;
+		this.editUrl = "/admin/flavor/edit/" + id;
 	}
 
 	public Long getId() {
@@ -32,6 +34,14 @@ public class FlavorView implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getEditUrl() {
+		return editUrl;
+	}
+
+	public void setEditUrl(String url) {
+		this.editUrl = url;
 	}
 
 	@Override
@@ -61,7 +71,7 @@ public class FlavorView implements Serializable {
 
 	@Override
 	public String toString() {
-		return "FlavorView [id=" + id + ", name=" + name + "]";
+		return "FlavorView [id=" + id + ", name=" + name + ", url=" + editUrl + "]";
 	}
 
 }
