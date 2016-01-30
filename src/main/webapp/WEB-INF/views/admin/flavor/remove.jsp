@@ -10,10 +10,13 @@
 	<h4 class="modal-title">Remove flavor: ${flavorRequest.name}</h4>
 </div>
 <div class="modal-body">
+		<div class="alert alert-warning" role="alert">
+			<strong>Are you sure you want to delete this item?</strong>
+		</div>
 		<form:hidden path="id"/>
 		<div class="form-group disabled" id="input-name-group">
 			<label for="input-name">Name</label>
-			<form:input path="name" id="input-name" class="form-control disabled" placeholder="Name" readonly />
+			<form:input path="name" id="input-name" class="form-control disabled" placeholder="Name" readonly="true" />
 			<span class="help-block"> </span>
 		</div>
 </div>
