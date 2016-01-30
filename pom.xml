@@ -16,8 +16,8 @@
         <spring.data.jpa.version>1.9.2.RELEASE</spring.data.jpa.version>
         <spring.security.version>4.0.3.RELEASE</spring.security.version>
 
-		<hibernate.version>5.0.7.FINAL</hibernate.version>
-		<hibernate.validator.version>5.2.2.FINAL</hibernate.validator.version>
+		<hibernate.version>5.0.7.Final</hibernate.version>
+		<hibernate.validator.version>5.2.2.Final</hibernate.validator.version>
 		
 		<hsqldb.version>2.3.3</hsqldb.version>
 

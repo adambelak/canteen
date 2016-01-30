@@ -19,11 +19,9 @@ $(document).ready(function() {
 	           data: $form.serialize(),
 	           error: function(data) {
 	        	   if (data.status == 200) {
-	        		   var doc = document.implementation.createHTMLDocument('');
-	        		   doc.open();
-	        		   doc.write(data.responseText);
-	        		   doc.close();
-	        		   var pageContent = doc.getElementById("page-content").innerHTML,
+					   var parser = new DOMParser(),
+						   doc = parser.parseFromString(data.responseText, "text/html"),
+						   pageContent = doc.getElementById("page-content").innerHTML,
 	        		   	   alertContent = doc.getElementById("alerts").innerHTML;
 	        		   $form.closest(".modal").modal("hide");
 	        		   setTimeout(function() { 
