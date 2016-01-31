@@ -11,3 +11,17 @@
 	right: 20px;
 	z-index: 1;
 }
+
+.jumbotron-error {
+	background: none;
+}
+
+.jumbotron-error h1 {
+	margin-top: 70px;
+	margin-bottom: 25px;
+}
+
+.jumbotron-error p {
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
