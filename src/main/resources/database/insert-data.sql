@@ -7,8 +7,8 @@ INSERT INTO user_roles (username, role) VALUES
 	('admin', 'ADMIN'), 
 	('user', 'USER'),
 	('user2', 'USER');
-	
-INSERT INTO flavors (name) VALUES 
+
+INSERT INTO flavours (name) VALUES
 	('nutella'),
 	('jam'),
 	('cottage cheese');

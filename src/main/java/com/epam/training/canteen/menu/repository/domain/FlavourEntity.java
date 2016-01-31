@@ -1,17 +1,11 @@
 package com.epam.training.canteen.menu.repository.domain;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 @Entity
-@Table(name = "flavors")
-public class FlavorEntity implements Serializable {
+@Table(name = "flavours")
+public class FlavourEntity implements Serializable {
 
 	private static final long serialVersionUID = 4836015177372501468L;
 
@@ -22,14 +16,14 @@ public class FlavorEntity implements Serializable {
 	@Column(nullable = false, unique = true)
 	private String name;
 
-	public FlavorEntity() {
+	public FlavourEntity() {
 	}
 
-	public FlavorEntity(String name) {
+	public FlavourEntity(String name) {
 		this.name = name;
 	}
 
-	public FlavorEntity(Long id, String name) {
+	public FlavourEntity(Long id, String name) {
 		this.id = id;
 		this.name = name;
 	}
@@ -66,7 +60,7 @@ public class FlavorEntity implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		FlavorEntity other = (FlavorEntity) obj;
+		FlavourEntity other = (FlavourEntity) obj;
 		if (name == null) {
 			if (other.name != null)
 				return false;
@@ -77,7 +71,7 @@ public class FlavorEntity implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Flavor [id=" + id + ", name=" + name + "]";
+		return "Flavour [id=" + id + ", name=" + name + "]";
 	}
 
 }

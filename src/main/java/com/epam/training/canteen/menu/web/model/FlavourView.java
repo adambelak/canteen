@@ -1,8 +1,11 @@
 package com.epam.training.canteen.menu.web.model;
 
+import com.epam.training.canteen.menu.web.controller.EditFlavourFormController;
+import com.epam.training.canteen.menu.web.controller.RemoveFlavourFormController;
+
 import java.io.Serializable;
 
-public class FlavorView implements Serializable {
+public class FlavourView implements Serializable {
 
 	private static final long serialVersionUID = -6618220833186163058L;
 	
@@ -10,16 +13,16 @@ public class FlavorView implements Serializable {
 	private String name;
 	private String editUrl;
 	private String removeUrl;
-	
-	public FlavorView() {
+
+	public FlavourView() {
 	}
 
-	public FlavorView(Long id, String name) {
+	public FlavourView(Long id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.editUrl = "/admin/flavors/edit/" + id;
-		this.removeUrl = "/admin/flavors/remove/" + id;
+		this.editUrl = EditFlavourFormController.REQUEST_MAPPING.replace("{id}", String.valueOf(id));
+		this.removeUrl = RemoveFlavourFormController.REQUEST_MAPPING.replace("{id}", String.valueOf(id));
 	}
 
 	public Long getId() {
@@ -70,7 +73,7 @@ public class FlavorView implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		FlavorView other = (FlavorView) obj;
+		FlavourView other = (FlavourView) obj;
 		if (name == null) {
 			if (other.name != null)
 				return false;
@@ -81,7 +84,7 @@ public class FlavorView implements Serializable {
 
 	@Override
 	public String toString() {
-		return "FlavorView [id=" + id + ", name=" + name + ", url=" + editUrl + "]";
+		return "FlavourView [id=" + id + ", name=" + name + ", url=" + editUrl + "]";
 	}
 
 }

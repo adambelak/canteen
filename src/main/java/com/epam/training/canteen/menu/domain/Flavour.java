@@ -2,21 +2,21 @@ package com.epam.training.canteen.menu.domain;
 
 import java.io.Serializable;
 
-public class Flavor implements Serializable {
+public class Flavour implements Serializable {
 	
 	private static final long serialVersionUID = 3722785226457894437L;
 	
 	private Long id;
 	private String name;
-	
-	public Flavor() {
+
+	public Flavour() {
 	}
 
-	public Flavor(String name) {
+	public Flavour(String name) {
 		this.name = name;
 	}
-	
-	public Flavor(Long id, String name) {
+
+	public Flavour(Long id, String name) {
 		this.id = id;
 		this.name = name;
 	}
@@ -53,7 +53,7 @@ public class Flavor implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Flavor other = (Flavor) obj;
+		Flavour other = (Flavour) obj;
 		if (name == null) {
 			if (other.name != null)
 				return false;
@@ -64,7 +64,7 @@ public class Flavor implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Flavor [id=" + id + ", name=" + name + "]";
+		return "Flavour [id=" + id + ", name=" + name + "]";
 	}
 	
 }

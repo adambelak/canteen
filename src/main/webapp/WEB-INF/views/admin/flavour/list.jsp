@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Manage flavors @ canteen</title>
+	<title>Manage flavours @ canteen</title>
 <jsp:include page="../../../templates/css.jsp" />
 </head>
 <body>
@@ -14,9 +14,9 @@
 			<div class="col-xs-12">
 				<div class="page-header">
 					<h1 class="clearfix">
-						Flavors
-						<a href="<c:url value='/admin/flavors/add' />" class="btn btn-default pull-right"
-						   data-toggle="modal" data-target="#flavor-modal" data-backdrop="static">
+						Flavours
+						<a href="<c:url value='/admin/flavours/add' />" class="btn btn-default pull-right"
+						   data-toggle="modal" data-target="#flavour-modal" data-backdrop="static">
 							<i class="fa fa-fw fa-plus"></i>
 						</a>
 					</h1>
@@ -33,16 +33,16 @@
 						</tr>
 					<thead>
 					<tbody>
-						<c:forEach var="flavor" items="${flavorsModel.items}">
+					<c:forEach var="flavour" items="${flavoursModel.items}">
 							<tr>
-								<td>${flavor.name}</td>
+								<td>${flavour.name}</td>
 								<td class="text-right">
-									<a href="<c:url value='${flavor.editUrl}' />" class="btn btn-xs btn-primary"
-									   data-toggle="modal" data-target="#flavor-modal" data-backdrop="static">
+									<a href="<c:url value='${flavour.editUrl}' />" class="btn btn-xs btn-primary"
+									   data-toggle="modal" data-target="#flavour-modal" data-backdrop="static">
 										<i class="fa fa-fw fa-pencil"></i>
 									</a>
-									<a href="<c:url value='${flavor.removeUrl}' />" class="btn btn-xs btn-danger"
-									   data-toggle="modal" data-target="#flavor-modal" data-backdrop="static">
+									<a href="<c:url value='${flavour.removeUrl}' />" class="btn btn-xs btn-danger"
+									   data-toggle="modal" data-target="#flavour-modal" data-backdrop="static">
 										<i class="fa fa-fw fa-times"></i>
 									</a>
 								</td>
@@ -53,7 +53,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="modal fade" id="flavor-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal fade" id="flavour-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content"></div>
 		</div>

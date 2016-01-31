@@ -65,9 +65,9 @@
 							</a>
 						</li>
 						<li>
-							<a href="<c:url value='/admin/flavors' />">
+							<a href="<c:url value='/admin/flavours' />">
 								<i class="fa fa-fw fa-plus"></i>
-								Flavors
+								Flavours
 							</a>
 						</li>
 					</ul>
