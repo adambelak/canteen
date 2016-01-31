@@ -29,13 +29,13 @@ $(document).ready(function() {
 	        			   $("#alerts").html(alertContent);
 	        		   }, 300);
 	        	   }
-	        	   if (data.length != 0 && data.responseJSON && data.responseJSON.fieldErrors) {
+	        	   if (data.status == 422 && data.responseJSON && data.responseJSON.fieldErrors) {
 	        		   $.each(data.responseJSON.fieldErrors, function(i, value){
 	        			   var groupIdSelector = "#input-" + value.field + "-group";
 	        			   $(".help-block", groupIdSelector).html(value.message);
 	        			   $(groupIdSelector).addClass("has-error");
 		               });
-	        	   }
+				   }
 	           }
          });
 	});
