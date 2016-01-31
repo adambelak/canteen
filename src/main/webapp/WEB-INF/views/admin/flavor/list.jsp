@@ -15,7 +15,8 @@
 				<div class="page-header">
 					<h1 class="clearfix">
 						Flavors
-						<a href="<c:url value='/admin/flavors/add' />" class="btn btn-default pull-right" data-toggle="modal" data-target="#flavor-modal">
+						<a href="<c:url value='/admin/flavors/add' />" class="btn btn-default pull-right"
+						   data-toggle="modal" data-target="#flavor-modal" data-backdrop="static">
 							<i class="fa fa-fw fa-plus"></i>
 						</a>
 					</h1>
@@ -36,10 +37,12 @@
 							<tr>
 								<td>${flavor.name}</td>
 								<td class="text-right">
-									<a href="<c:url value='${flavor.editUrl}' />" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#flavor-modal">
+									<a href="<c:url value='${flavor.editUrl}' />" class="btn btn-xs btn-primary"
+									   data-toggle="modal" data-target="#flavor-modal" data-backdrop="static">
 										<i class="fa fa-fw fa-pencil"></i>
 									</a>
-									<a href="<c:url value='${flavor.removeUrl}' />" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#flavor-modal">
+									<a href="<c:url value='${flavor.removeUrl}' />" class="btn btn-xs btn-danger"
+									   data-toggle="modal" data-target="#flavor-modal" data-backdrop="static">
 										<i class="fa fa-fw fa-times"></i>
 									</a>
 								</td>
