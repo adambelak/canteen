@@ -1,8 +1,9 @@
-package com.epam.training.canteen.menu.web.controller;
+package com.epam.training.canteen.menu.web.controller.flavour;
 
 import com.epam.training.canteen.menu.domain.Flavour;
 import com.epam.training.canteen.menu.service.FlavourSearchService;
-import com.epam.training.canteen.menu.web.model.EditFlavourRequest;
+import com.epam.training.canteen.menu.web.model.flavour.EditFlavourRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

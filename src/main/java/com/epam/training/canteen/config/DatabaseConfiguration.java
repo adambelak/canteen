@@ -21,8 +21,11 @@ public class DatabaseConfiguration {
 
 	@Bean(name = "dataSource")
 	public DataSource dataSource() {
-		return new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.HSQL).addScript("database/create-db.sql")
-				.addScript("database/insert-data.sql").build();
+		return new EmbeddedDatabaseBuilder()
+				.setType(EmbeddedDatabaseType.HSQL)
+				.addScript("database/create-db.sql")
+				.addScript("database/insert-data.sql")
+				.build();
 	}
 
 	@Bean

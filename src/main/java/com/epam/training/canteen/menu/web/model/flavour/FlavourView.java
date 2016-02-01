@@ -1,9 +1,9 @@
-package com.epam.training.canteen.menu.web.model;
-
-import com.epam.training.canteen.menu.web.controller.EditFlavourFormController;
-import com.epam.training.canteen.menu.web.controller.RemoveFlavourFormController;
+package com.epam.training.canteen.menu.web.model.flavour;
 
 import java.io.Serializable;
+
+import com.epam.training.canteen.menu.web.controller.flavour.EditFlavourFormController;
+import com.epam.training.canteen.menu.web.controller.flavour.RemoveFlavourFormController;
 
 public class FlavourView implements Serializable {
 

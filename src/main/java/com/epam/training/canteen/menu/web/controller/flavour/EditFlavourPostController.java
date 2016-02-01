@@ -1,8 +1,8 @@
-package com.epam.training.canteen.menu.web.controller;
+package com.epam.training.canteen.menu.web.controller.flavour;
 
 import com.epam.training.canteen.exception.InvalidRequestException;
 import com.epam.training.canteen.menu.service.FlavourWriteService;
-import com.epam.training.canteen.menu.web.model.EditFlavourRequest;
+import com.epam.training.canteen.menu.web.model.flavour.EditFlavourRequest;
 import com.epam.training.canteen.menu.web.transform.FlavourRequestTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,14 +15,14 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.validation.Valid;
 
 @Controller
-public class RemoveFlavourPostController {
+public class EditFlavourPostController {
 
-	public static final String REQUEST_MAPPING = "/admin/flavours/remove";
+	public static final String REQUEST_MAPPING = "/admin/flavours/edit";
 	private FlavourWriteService writeService;
 	private FlavourRequestTransformer transformer;
 
 	@Autowired
-	public RemoveFlavourPostController(FlavourWriteService writeService, FlavourRequestTransformer transformer) {
+	public EditFlavourPostController(FlavourWriteService writeService, FlavourRequestTransformer transformer) {
 		this.writeService = writeService;
 		this.transformer = transformer;
 	}
@@ -37,8 +37,8 @@ public class RemoveFlavourPostController {
 		if (bindingResult.hasErrors()) {
 			throw new InvalidRequestException("Invalid flavour.", bindingResult);
 		}
-		writeService.remove(transformer.transform(request));
-		redirectAttributes.addFlashAttribute("successMessage", String.format("Flavour '%s' remove!", request.getName()));
+		writeService.save(transformer.transform(request));
+		redirectAttributes.addFlashAttribute("successMessage", String.format("Flavour '%s' updated!", request.getName()));
 		return "redirect:" + FlavoursController.REQUEST_MAPPING;
 	}
 

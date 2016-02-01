@@ -1,12 +1,13 @@
-package com.epam.training.canteen.menu.web.controller;
+package com.epam.training.canteen.menu.web.controller.flavour;
 
-import com.epam.training.canteen.menu.web.model.AddFlavourRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.epam.training.canteen.menu.web.model.flavour.AddFlavourRequest;
 
 @Controller
 public class AddFlavourFormController {

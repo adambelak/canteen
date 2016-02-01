@@ -1,8 +1,9 @@
-package com.epam.training.canteen.menu.web.transform;
+package com.epam.training.canteen.menu.web.transform.flavour;
 
 import com.epam.training.canteen.menu.domain.Flavour;
-import com.epam.training.canteen.menu.web.model.AddFlavourRequest;
-import com.epam.training.canteen.menu.web.model.EditFlavourRequest;
+import com.epam.training.canteen.menu.web.model.flavour.AddFlavourRequest;
+import com.epam.training.canteen.menu.web.model.flavour.EditFlavourRequest;
+
 import org.springframework.stereotype.Component;
 
 @Component

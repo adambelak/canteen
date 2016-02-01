@@ -1,4 +1,4 @@
-package com.epam.training.canteen.menu.web.model;
+package com.epam.training.canteen.menu.web.model.flavour;
 
 import java.util.Set;
 

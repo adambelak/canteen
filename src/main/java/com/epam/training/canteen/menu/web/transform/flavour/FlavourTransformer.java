@@ -1,7 +1,8 @@
-package com.epam.training.canteen.menu.web.transform;
+package com.epam.training.canteen.menu.web.transform.flavour;
 
 import com.epam.training.canteen.menu.domain.Flavour;
-import com.epam.training.canteen.menu.web.model.FlavourView;
+import com.epam.training.canteen.menu.web.model.flavour.FlavourView;
+
 import org.springframework.stereotype.Component;
 
 import java.util.Collection;
