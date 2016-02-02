@@ -1,45 +1,62 @@
 package com.epam.training.canteen.menu.web.controller.flavour;
 
-import com.epam.training.canteen.exception.InvalidRequestException;
-import com.epam.training.canteen.menu.service.FlavourWriteService;
-import com.epam.training.canteen.menu.web.model.flavour.AddFlavourRequest;
-import com.epam.training.canteen.menu.web.transform.FlavourRequestTransformer;
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.validation.Valid;
+import com.epam.training.canteen.exception.InvalidRequestException;
+import com.epam.training.canteen.menu.service.FlavourWriteService;
+import com.epam.training.canteen.menu.web.model.flavour.AddFlavourRequest;
+import com.epam.training.canteen.menu.web.transform.flavour.FlavourRequestTransformer;
 
 @Controller
 public class AddFlavourPostController {
 
 	public static final String REQUEST_MAPPING = "/admin/flavours/add";
-	private FlavourWriteService writeService;
-	private FlavourRequestTransformer transformer;
-
+	private static final String REDIRECT_URL = "redirect:" + FlavoursController.REQUEST_MAPPING;
+	private static final String SUCCESS_MESSAGE = "flavour.add.success.message";
+	private static final String ERROR_MESSAGE = "flavour.answer.error.message";
+	private static final String FLAVOUR_REQUEST = "flavourRequest";
+	
 	@Autowired
-	public AddFlavourPostController(FlavourWriteService writeService, FlavourRequestTransformer transformer) {
-		this.writeService = writeService;
-		this.transformer = transformer;
-	}
+	FlavourWriteService writeService;
+	@Autowired
+	FlavourRequestTransformer transformer;
+	@Autowired
+	ResourceBundleMessageSource messageSource;
+	@Autowired
+	LocaleResolver localeResolver;
 
-	@ModelAttribute("flavourRequest")
+	@ModelAttribute(FLAVOUR_REQUEST)
 	public AddFlavourRequest createFlavourRequest(@ModelAttribute AddFlavourRequest request) {
 		return new AddFlavourRequest();
 	}
 
 	@RequestMapping(value = REQUEST_MAPPING, method = RequestMethod.POST)
-	public String create(@Valid AddFlavourRequest request, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+	public String create(@Valid AddFlavourRequest request, BindingResult bindingResult, HttpServletRequest servletRequest, RedirectAttributes redirectAttributes) {
 		if (bindingResult.hasErrors()) {
-			throw new InvalidRequestException("Invalid flavour.", bindingResult);
+			throw new InvalidRequestException(getErrorMessage(servletRequest), bindingResult);
 		}
 		writeService.save(transformer.transform(request));
-		redirectAttributes.addFlashAttribute("successMessage", String.format("Flavour '%s' saved!", request.getName()));
-		return "redirect:" + FlavoursController.REQUEST_MAPPING;
+		redirectAttributes.addFlashAttribute("successMessage", getSuccessMessage(request, servletRequest));
+		return REDIRECT_URL;
+	}
+
+	private String getErrorMessage(HttpServletRequest servletRequest) {
+		return messageSource.getMessage(ERROR_MESSAGE, new Object[]{}, localeResolver.resolveLocale(servletRequest));
+	}
+
+	private String getSuccessMessage(AddFlavourRequest request, HttpServletRequest servletRequest) {
+		return messageSource.getMessage(SUCCESS_MESSAGE, new Object[]{request.getName()}, localeResolver.resolveLocale(servletRequest));
 	}
 
 }

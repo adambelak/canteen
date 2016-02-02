@@ -1,8 +1,8 @@
 package com.epam.training.canteen.web.controller.error;
 
-import com.epam.training.canteen.exception.ErrorResource;
-import com.epam.training.canteen.exception.FieldErrorResource;
-import com.epam.training.canteen.exception.InvalidRequestException;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -13,8 +13,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.epam.training.canteen.exception.ErrorResource;
+import com.epam.training.canteen.exception.FieldErrorResource;
+import com.epam.training.canteen.exception.InvalidRequestException;
 
 
 @ControllerAdvice("com.epam.training.canteen")

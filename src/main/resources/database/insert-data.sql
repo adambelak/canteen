@@ -12,3 +12,8 @@ INSERT INTO flavours (name) VALUES
 	('nutella'),
 	('jam'),
 	('cottage cheese');
+	
+INSERT INTO side_dishes (name) VALUES
+	('salad'),
+	('steak fries'),
+	('mashed poteto');

@@ -1,7 +1,12 @@
 package com.epam.training.canteen.web.controller.error;
 
-import com.epam.training.canteen.exception.ErrorResource;
-import com.epam.training.canteen.exception.FieldErrorResource;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.util.Arrays;
+import java.util.Optional;
+
+import javax.persistence.PersistenceException;
+
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -12,11 +17,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import javax.persistence.PersistenceException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.util.Arrays;
-import java.util.Optional;
+import com.epam.training.canteen.exception.ErrorResource;
+import com.epam.training.canteen.exception.FieldErrorResource;
 
 @ControllerAdvice("com.epam.training.canteen")
 public class PersistenceExceptionHandler extends ResponseEntityExceptionHandler {

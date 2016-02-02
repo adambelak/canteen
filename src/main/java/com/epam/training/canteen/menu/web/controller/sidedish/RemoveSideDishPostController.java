@@ -1,4 +1,4 @@
-package com.epam.training.canteen.menu.web.controller.flavour;
+package com.epam.training.canteen.menu.web.controller.sidedish;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -14,47 +14,48 @@ import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.epam.training.canteen.exception.InvalidRequestException;
-import com.epam.training.canteen.menu.service.FlavourWriteService;
-import com.epam.training.canteen.menu.web.model.flavour.EditFlavourRequest;
-import com.epam.training.canteen.menu.web.transform.flavour.FlavourRequestTransformer;
+import com.epam.training.canteen.menu.service.SideDishWriterService;
+import com.epam.training.canteen.menu.web.model.sidedish.EditSideDishRequest;
+import com.epam.training.canteen.menu.web.transform.sidedish.SideDishRequestTransformer;
 
 @Controller
-public class RemoveFlavourPostController {
+public class RemoveSideDishPostController {
 
-	public static final String REQUEST_MAPPING = "/admin/flavours/remove";
-	private static final String FLAVOUR_REQUEST = "flavourRequest";
-	private static final String SUCCESS_MESSAGE = "flavour.remove.success.message";
-	private static final String ERROR_MESSAGE = "flavour.answer.error.message";
+	public static final String REQUEST_MAPPING = "/admin/side_dishes/remove";
+	private static final String REDIRECT_URL = "redirect:" + SideDishesController.REQUEST_MAPPING;
+	private static final String SIDE_DISH_REQUEST = "sideDishRequest";
+	private static final String SUCCESS_MESSAGE = "sidedish.remove.success.message";
+	private static final String ERROR_MESSAGE = "sidedish.answer.error.message";
 
 	@Autowired
-	FlavourWriteService writeService;
+	SideDishWriterService writeService;
 	@Autowired
-	FlavourRequestTransformer transformer;
+	SideDishRequestTransformer transformer;
 	@Autowired
 	ResourceBundleMessageSource messageSource;
 	@Autowired
 	LocaleResolver localeResolver;
 
-	@ModelAttribute(FLAVOUR_REQUEST)
-	public EditFlavourRequest createFlavourRequest(@ModelAttribute EditFlavourRequest request) {
+	@ModelAttribute(SIDE_DISH_REQUEST)
+	public EditSideDishRequest createFlavourRequest(@ModelAttribute EditSideDishRequest request) {
 		return request;
 	}
 
 	@RequestMapping(value = REQUEST_MAPPING, method = RequestMethod.POST)
-	public String create(@Valid EditFlavourRequest request, BindingResult bindingResult, HttpServletRequest servletRequest, RedirectAttributes redirectAttributes) {
+	public String create(@Valid EditSideDishRequest request, BindingResult bindingResult, HttpServletRequest servletRequest, RedirectAttributes redirectAttributes) {
 		if (bindingResult.hasErrors()) {
 			throw new InvalidRequestException(getErrorMessage(servletRequest), bindingResult);
 		}
 		writeService.remove(transformer.transform(request));
 		redirectAttributes.addFlashAttribute("successMessage", getSuccessMessage(request, servletRequest));
-		return "redirect:" + FlavoursController.REQUEST_MAPPING;
+		return REDIRECT_URL;
 	}
 	
 	private String getErrorMessage(HttpServletRequest servletRequest) {
 		return messageSource.getMessage(ERROR_MESSAGE, new Object[]{}, localeResolver.resolveLocale(servletRequest));
 	}
 
-	private String getSuccessMessage(EditFlavourRequest request, HttpServletRequest servletRequest) {
+	private String getSuccessMessage(EditSideDishRequest request, HttpServletRequest servletRequest) {
 		return messageSource.getMessage(SUCCESS_MESSAGE, new Object[]{request.getName()}, localeResolver.resolveLocale(servletRequest));
 	}
 

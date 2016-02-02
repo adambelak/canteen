@@ -1,12 +1,13 @@
 package com.epam.training.canteen.menu.service.transform;
 
-import com.epam.training.canteen.menu.domain.Flavour;
-import com.epam.training.canteen.menu.repository.domain.FlavourEntity;
-import org.springframework.stereotype.Component;
-
 import java.util.Collection;
 import java.util.Set;
 import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Component;
+
+import com.epam.training.canteen.menu.domain.Flavour;
+import com.epam.training.canteen.menu.repository.domain.FlavourEntity;
 
 @Component
 public class FlavourEntityTransformer {

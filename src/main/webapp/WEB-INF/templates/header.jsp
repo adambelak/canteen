@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <nav class="navbar navbar-default no-radius">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -15,13 +16,13 @@
 				<li class="active">
 					<a href="<c:url value='/' />">
 						<i class="fa fa-fw fa-dashboard"></i>
-						Home <span class="sr-only">(current)</span>
+						<spring:message code="navigation.home" />
 					</a>
 				</li>
 				<li>
 					<a href="<c:url value='/menu' />">
 						<i class="fa fa-fw fa-cutlery"></i>
-						Menu
+						<spring:message code="navigation.menu" />
 					</a>
 				</li>
 			</ul>
@@ -30,44 +31,44 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 						<i class="fa fa-fw fa-database"></i>
-						Manage <span class="caret"></span>
+						<spring:message code="navigation.manage" /> <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
 						<li>
 							<a href="<c:url value='/admin/menus' />">
 								<i class="fa fa-fw fa-calendar-plus-o"></i>
-								Menus
+								<spring:message code="navigation.menus" />
 							</a>
 						</li>
 						<li>
 							<a href="<c:url value='/admin/orders' />">
 								<i class="fa fa-fw fa-check-square-o"></i>
-								Orders
+								<spring:message code="navigation.orders" />
 							</a>
 						</li>
 						<li>
 							<a href="<c:url value='/admin/users' />">
 								<i class="fa fa-fw fa-users"></i>
-								Users
+								<spring:message code="navigation.users" />
 							</a>
 						</li>
 						<li role="separator" class="divider"></li>
 						<li>
 							<a href="<c:url value='/admin/foods' />">
 								<i class="fa fa-fw fa-cutlery"></i>
-								Foods
+								<spring:message code="navigation.foods" />
 							</a>
 						</li>
 						<li>
 							<a href="<c:url value='/admin/side_dishes' />">
 								<i class="fa fa-fw fa-plus"></i>
-								Side dishes
+								<spring:message code="navigation.sideDishes" />
 							</a>
 						</li>
 						<li>
 							<a href="<c:url value='/admin/flavours' />">
 								<i class="fa fa-fw fa-plus"></i>
-								Flavours
+								<spring:message code="navigation.flavours" />
 							</a>
 						</li>
 					</ul>
@@ -82,20 +83,20 @@
 						<li class="disabled">
 							<a href="<c:url value='/settings' />">
 								<i class="fa fa-fw fa-gears"></i>
-								Settings
+								<spring:message code="navigation.settings" />
 							</a>
 						</li>
 						<li>
 							<a href="<c:url value='/my-orders' />">
 								<i class="fa fa-fw fa-shopping-cart"></i>
-								My orders
+								<spring:message code="navigation.myOrders" />
 							</a>
 						</li>
 						<li role="separator" class="divider"></li>
 						<li>
 							<a href="<c:url value='/logout' />">
 								<i class="fa fa-fw fa-sign-out"></i>
-								Logout
+								<spring:message code="navigation.logout" />
 							</a>
 						</li>
 					</ul>

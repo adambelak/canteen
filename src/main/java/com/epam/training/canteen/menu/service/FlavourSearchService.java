@@ -1,16 +1,17 @@
 package com.epam.training.canteen.menu.service;
 
-import com.epam.training.canteen.menu.domain.Flavour;
-import com.epam.training.canteen.menu.repository.dao.FlavourRepository;
-import com.epam.training.canteen.menu.repository.domain.FlavourEntity;
-import com.epam.training.canteen.menu.service.transform.FlavourEntityTransformer;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.util.Collection;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.epam.training.canteen.menu.domain.Flavour;
+import com.epam.training.canteen.menu.repository.dao.FlavourRepository;
+import com.epam.training.canteen.menu.repository.domain.FlavourEntity;
+import com.epam.training.canteen.menu.service.transform.FlavourEntityTransformer;
 
 @Service
 public class FlavourSearchService {

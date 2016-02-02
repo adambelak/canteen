@@ -10,26 +10,26 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "flavours")
-public class FlavourEntity implements Serializable {
+@Table(name = "side_dishes")
+public class SideDishEntity implements Serializable {
 
-	private static final long serialVersionUID = 4836015177372501468L;
+	private static final long serialVersionUID = -5634846624633233720L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(nullable = false, unique = true)
+	@Column(unique = true, nullable = false)
 	private String name;
 
-	public FlavourEntity() {
+	public SideDishEntity() {
 	}
 
-	public FlavourEntity(String name) {
+	public SideDishEntity(String name) {
 		this.name = name;
 	}
 
-	public FlavourEntity(Long id, String name) {
+	public SideDishEntity(Long id, String name) {
 		this.id = id;
 		this.name = name;
 	}
@@ -66,7 +66,7 @@ public class FlavourEntity implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		FlavourEntity other = (FlavourEntity) obj;
+		SideDishEntity other = (SideDishEntity) obj;
 		if (name == null) {
 			if (other.name != null)
 				return false;
@@ -77,7 +77,6 @@ public class FlavourEntity implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Flavour [id=" + id + ", name=" + name + "]";
+		return "SideDishEntity [id=" + id + ", name=" + name + "]";
 	}
-
 }

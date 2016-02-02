@@ -1,10 +1,10 @@
 package com.epam.training.canteen.menu.web.transform.flavour;
 
+import org.springframework.stereotype.Component;
+
 import com.epam.training.canteen.menu.domain.Flavour;
 import com.epam.training.canteen.menu.web.model.flavour.AddFlavourRequest;
 import com.epam.training.canteen.menu.web.model.flavour.EditFlavourRequest;
-
-import org.springframework.stereotype.Component;
 
 @Component
 public class FlavourRequestTransformer {

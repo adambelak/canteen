@@ -13,15 +13,17 @@ import com.epam.training.canteen.menu.web.model.flavour.AddFlavourRequest;
 public class AddFlavourFormController {
 
 	public static final String REQUEST_MAPPING = "/admin/flavours/add";
+	private static final String FLAVOUR_REQUEST = "flavourRequest";
+	private static final String VIEW_NAME = "admin/flavour/add";
 
-	@ModelAttribute("flavourRequest")
+	@ModelAttribute(FLAVOUR_REQUEST)
 	public AddFlavourRequest createFlavourRequest(@ModelAttribute AddFlavourRequest request) {
 		return new AddFlavourRequest();
 	}
 	
 	@RequestMapping(value = REQUEST_MAPPING, method = RequestMethod.GET)
 	public @ResponseBody ModelAndView addForm() {
-		return new ModelAndView("admin/flavour/add");
+		return new ModelAndView(VIEW_NAME);
 	}
 	
 }
