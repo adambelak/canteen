@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 public class SideDish implements Serializable {
 
+	private static final long serialVersionUID = -4705736483837930877L;
+	
 	private Long id;
 	private String name;
 	
