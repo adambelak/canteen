@@ -25,3 +25,23 @@
 	margin-top: 25px;
 	margin-bottom: 25px;
 }
+
+.img-food {
+	height: 146px;
+}
+.thumbnail-food {
+	position: relative;
+}
+.thumbnail-food .caption {
+	position: absolute;
+	opacity: 0;
+	bottom: 4px;
+	left: 4px;
+	right: 4px;
+	padding: 0px;
+	border-radius: 0px;
+    transition: opacity 0.8s;
+}
+.thumbnail-food:hover .caption {
+	opacity: 1;
+}
